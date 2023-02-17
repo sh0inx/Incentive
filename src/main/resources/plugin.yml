@@ -1,0 +1,31 @@
+name: "Incentive"
+version: "0.0.1"
+main: "sh0inx.incentive.Incentive"
+author: "sh0inx"
+api-version: 1.18
+
+description: "Powers up servers with rewards for active players."
+website: "NA"
+prefix: "~*~ Incentive ~*~"
+
+softdepend: ["Vault", "ObsidianMaterials"]
+
+commands:
+  inc:
+    aliases: [rewards, incentives, incentive]
+
+permissions:
+  incentive.blacklist:
+    description: "Bars a player from receiving incentives."
+    default: false
+
+  incentive.admin:
+    description: "Gives a player administrative privileges within Incentive."
+    default: op
+
+  incentive.*:
+    description: "Gives a player all Incentive permissions."
+    default: false
+    children:
+      incentive.blacklist: false
+      incentive.admin: true
