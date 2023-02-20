@@ -1,17 +1,19 @@
 package sh0inx.incentive;
 
-
 public class versionCheck {
 
     private static String prefix = Incentive.prefix;
     private static Platform platform;
+
+    public versionCheck() {
+    }
 
     public static String message(boolean status, String version) {
         if(status) {
             String message = String.format("""
                 %s Running versionCheck.message
                 %s Version detected: %s
-                STATUS: Pass""", prefix, prefix, version);
+                %s STATUS: Pass""", prefix, prefix, version, prefix);
             return message;
         }
 
@@ -19,7 +21,7 @@ public class versionCheck {
             String message = String.format("""
                 %s Running versionCheck.message
                 %s Version detected: %s
-                STATUS: Failure - Bad Version""", prefix, prefix, version);
+                %s STATUS: Failure - Bad Version""", prefix, prefix, version, prefix);
             return message;
         }
         return prefix + "ERROR: Illegal message request [versionCheck.message].";
@@ -118,3 +120,4 @@ public class versionCheck {
         return true;
     }
 }
+

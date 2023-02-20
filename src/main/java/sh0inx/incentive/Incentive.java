@@ -8,11 +8,10 @@ import java.util.logging.Logger;
 
 public final class Incentive extends JavaPlugin {
 
-
-    //TODO: on load, determine what kind of server is running (Spigot, Paper, or Purpur).
     //TODO: Load plugin profile based on version found.
 
     final int bStatsPluginId = 17084;
+    final String pluginID = "gravestones";
     Logger log = Bukkit.getLogger();
 
     versionCheck.Platform platform = versionCheck.getPlatform();
@@ -43,12 +42,23 @@ public final class Incentive extends JavaPlugin {
         }
     }
 
+    public void checkForUpdates() {
+        new UpdateChecker(this, pluginID).getVersion(version -> {
+            if (this.getDescription().getVersion().equals(version)) {
+                getLogger().info(prefix + "There is not a new update available.");
+            } else {
+                getLogger().info(prefix + "There is a new update available.");
+            }
+        });
+    }
+
     @Override
     public void onEnable() {
         log.info("Initializing Incentive...");
         //Metrics metrics = new Metrics(this, bStatsPluginId);
         verifyPlatform(platform);
         verifyVersion(version);
+        //checkForUpdates();
     }
 
     @Override
