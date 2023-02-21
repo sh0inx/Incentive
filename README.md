@@ -8,7 +8,7 @@
 
 ![GitHub issues](https://img.shields.io/github/issues-raw/sh0inx/Incentive?logo=github&style=flat-square)
 
-[![Purpur - 1.19.3](https://img.shields.io/badge/Purpur-1.19.3-3A4675?logo=https://purpurmc.org/images/purpur.svg&style=flat-square)](https://api.purpurmc.org/v2/purpur/1.19.3/latest/download)
+[![Purpur - 1.19.3](https://img.shields.io/badge/Purpur-1.19.3-3A4675?logo=https://purpurmc.org/images/purpur.svg&style=flat-square)](https://purpurmc.org/downloads)
 ![Modrinth Version](https://img.shields.io/modrinth/v/uE7Sgy9R?logo=modrinth&style=flat-square)
 ![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/uE7Sgy9R?color=1bd96a&logo=modrinth&style=flat-square)
 ![Modrinth Downloads](https://img.shields.io/modrinth/dt/uE7Sgy9R?logo=modrinth&style=flat-square)
