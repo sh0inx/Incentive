@@ -12,6 +12,11 @@ public final class Incentive extends JavaPlugin {
 
     final int bStatsPluginId = 17084;
     final String pluginID = "gravestones";
+
+    public static final String author = getConfig().getString(author);
+    public static final String version = getConfig().getString(version);
+    public static final String link = "https://www.modrinth.com/plugins/Incentive";
+    public static final String source = "https://www.github.com/sh0inx/Incentive";
     Logger log = Bukkit.getLogger();
 
     versionCheck.Platform platform = versionCheck.getPlatform();
