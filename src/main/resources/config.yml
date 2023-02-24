@@ -1,0 +1,56 @@
+---
+#
+#          ██╗███╗  ██╗ █████╗ ███████╗███╗  ██╗████████╗██╗██╗   ██╗███████╗
+#          ██║████╗ ██║██╔══██╗██╔════╝████╗ ██║╚══██╔══╝██║██║   ██║██╔════╝║
+#          ██║██╔██╗██║██║  ╚═╝█████╗  ██╔██╗██║   ██║   ██║╚██╗ ██╔╝█████╗  ║ ║
+#          ██║██║╚████║██║  ██╗██╔══╝  ██║╚████║   ██║   ██║ ╚████╔╝ ██╔══╝  ║ ║ ║
+#          ██║██║ ╚███║╚█████╔╝███████╗██║ ╚███║   ██║   ██║  ╚██╔╝  ███████╗║ ║ ║
+#          ╚═╝╚═╝  ╚══╝ ╚════╝ ╚══════╝╚═╝  ╚══╝   ╚═╝   ╚═╝   ╚═╝   ╚══════╝║ ║ ║
+#          ══════════════════════════════════════════════════════════════════╝ ║ ║
+#            ══════════════════════════════════════════════════════════════════╝ ║
+#              ══════════════════════════════════════════════════════════════════╝
+#
+#          A Minecraft Plugin - https://modrinth.com/plugin/incentive
+#          GPL 3.0 License - https://www.gnu.org/licenses/gpl-3.0.txt
+#          sh0inx - https://modrinth.com/user/sh0inx
+#          wiki - https://github.com/sh0inx/Incentive/wiki
+#          discord - https://discord.gg/pQNTS9uyp7
+#
+# General Plugin Settings
+# - whitelist: (true/false) switches from blacklist to whitelist mode.
+# - update-checks: (true/false) enables checking for plugin updates.
+# - database: (PostgreSQL) changes the type of database used.
+# - bStats: (true/false) allows the plugin to report to bStats.
+#
+general:
+  whitelist: false
+  update-checks: true
+  database: PostgreSQL
+  bStats: true
+#
+# Timezone Settings
+# - server-timezone: (timezone) uses the specified timezone for plugin calculations
+#   (leave blank for default).
+# - player-timezones: (true/false) uses player-specified timezones for calculations.
+# - timezones-cooldown: (see wiki) sets a cooldown for players changing their timezone.
+# - admin-override: (true/false) allows admins to override timezones for players.
+#
+timezones:
+  server-timezone:
+  player-timezones: true
+  timezones-cooldown: weekly
+  admin-override: true
+#
+# Module Settings
+# - module: (true/false) enables the _____ module.
+#
+modules:
+  gui: true
+  streaks: true
+  playtime: true
+  log-in: true
+  missions: true
+  shop: true
+  economy: true
+  points: true
+  bungee: true
