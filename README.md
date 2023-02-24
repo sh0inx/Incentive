@@ -2,7 +2,6 @@
 <img src="https://img.shields.io/liberapay/patrons/sh0inx.svg?logo=liberapay&style=flat-square">
 [![Patreon - sh0inx](https://img.shields.io/badge/Patreon-sh0inx-blue?logo=patreon&logoColor=ff424d&style=flat-square)](https://www.patreon.com/sh0inx)
 
-[![Made with PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue?logo=postgresql&logoColor=white&style=flat-square)](https://www.postgresql.org/ "Go to PostgresSQL homepage")
 ![GitHub](https://img.shields.io/github/license/sh0inx/Incentive?style=flat-square)
 ![Java 17](https://img.shields.io/badge/java-17-%23ED8B00.svg?style=flat-square&logo=java&logoColor=white)
 
