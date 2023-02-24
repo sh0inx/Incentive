@@ -19,6 +19,10 @@ permissions:
     description: "Bars a player from receiving incentives."
     default: false
 
+  incentive.whitelist:
+    description: "Allows a player to receive incentives."
+    default: false
+
   incentive.admin:
     description: "Gives a player administrative privileges within Incentive."
     default: op
@@ -28,4 +32,5 @@ permissions:
     default: false
     children:
       incentive.blacklist: false
+      incentive.whitelist: false
       incentive.admin: true
