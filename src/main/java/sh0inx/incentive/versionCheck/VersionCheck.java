@@ -1,47 +1,45 @@
-package sh0inx.incentive;
+package sh0inx.incentive.versionCheck;
 
-public class versionCheck {
+import org.bukkit.Bukkit;
+import sh0inx.incentive.Incentive;
 
-    private static String prefix = Incentive.prefix;
-    private static Platform platform;
+public class VersionCheck {
 
-    public versionCheck() {
+    private static final String prefix = Incentive.debugPrefix;
+
+    public VersionCheck() {
     }
 
     public static String message(boolean status, String version) {
         if(status) {
-            String message = String.format("""
+            return String.format("""
                 %s Running versionCheck.message
                 %s Version detected: %s
                 %s STATUS: Pass""", prefix, prefix, version, prefix);
-            return message;
         }
 
         if(!status) {
-            String message = String.format("""
+            return String.format("""
                 %s Running versionCheck.message
                 %s Version detected: %s
                 %s STATUS: Failure - Bad Version""", prefix, prefix, version, prefix);
-            return message;
         }
         return prefix + "ERROR: Illegal message request [versionCheck.message].";
     }
     public static String message(boolean status, Platform platform) {
 
         if(status) {
-            String message = String.format("""
+            return String.format("""
             %s Running versionCheck.message
             %s Platform detected: %s
             STATUS: Pass""", prefix, prefix, platform.toString());
-            return message;
         }
 
         if(!status) {
-            String message = String.format("""
+            return String.format("""
                 %s Running versionCheck.message
                 %s Platform detected: %s
                 STATUS: Failure - Bad Platform""", prefix, prefix, platform.toString());
-            return message;
         }
 
         return prefix + "ERROR: Illegal message request [versionCheck.message].";
@@ -57,6 +55,7 @@ public class versionCheck {
         Mohist,
         Arclight,
         Cardboard,
+        Quilt,
         Fabric,
         Forge,
         NULL
@@ -84,6 +83,8 @@ public class versionCheck {
             return Platform.Sponge;
         else if (classExists("net.minecraftforge.fml.server.ServerMain"))
             return Platform.Forge;
+        else if (classExists("org.quiltmc.loader.impl.QuiltLoaderConfig"))
+            return Platform.Quilt;
         else if (classExists("net.fabricmc.fabric.mixin.event.entity.EntityMixin"))
             return Platform.Fabric;
         else if (classExists("org.purpurmc.purpur.event.player.PlayerBookTooLargeEvent"))
@@ -100,24 +101,28 @@ public class versionCheck {
 
     public static boolean isPlatformSupported(Platform platform) {
 
-        switch (platform) {
-            case Spigot:
-            case Paper:
-            case Purpur:
-                return true;
-            default:
-                return false;
-        }
+        return switch (platform) {
+            case Spigot, Paper, Purpur -> true;
+            default -> false;
+        };
     }
 
     public static String getVersion() {
-        return org.bukkit.Bukkit.getVersion();
+        System.out.println(org.bukkit.Bukkit.getMinecraftVersion());
+        return org.bukkit.Bukkit.getMinecraftVersion();
+
     }
 
     public static boolean isVersionSupported(String version) {
 
-        //TODO: implement version check
-        return true;
+        if(version.contains("1.19") ||
+           version.contains("1.18") ||
+           version.contains("1.17") ||
+           version.contains("1.16")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
