@@ -16,7 +16,7 @@ public class AboutCommand implements CommandExecutor {
                 version: %s
                 modrinth: %s
                 source: %s""",
-                Incentive.author, Incentive.version, Incentive.link, Incentive.source);
+                Incentive.pluginAuthor, Incentive.pluginVersion, Incentive.link, Incentive.source);
 
         return false;
     }
