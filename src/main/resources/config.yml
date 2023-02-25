@@ -19,20 +19,20 @@
 # General Plugin Settings
 # - whitelist: (true/false) switches from blacklist to whitelist mode.
 # - update-checks: (true/false) enables checking for plugin updates.
-# - database: (PostgreSQL) changes the type of database used.
+# - database: (MySQL) changes the type of database used.
 # - bStats: (true/false) allows the plugin to report to bStats.
 #
 general:
   whitelist: false
   update-checks: true
-  database: PostgreSQL
+  database: MySQL
   bStats: true
 #
 # Timezone Settings
 # - server-timezone: (timezone) uses the specified timezone for plugin calculations
 #   (leave blank for default).
 # - player-timezones: (true/false) uses player-specified timezones for calculations.
-# - timezones-cooldown: (see wiki) sets a cooldown for players changing their timezone.
+# - timezones-cooldown: (see wiki) sets a cool down for players changing their timezone.
 # - admin-override: (true/false) allows admins to override timezones for players.
 #
 timezones:
