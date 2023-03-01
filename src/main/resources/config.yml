@@ -11,7 +11,7 @@
 #              ══════════════════════════════════════════════════════════════════╝
 #
 #          A Minecraft Plugin - https://modrinth.com/plugin/incentive
-#          GPL 3.0 License - https://www.gnu.org/licenses/gpl-3.0.txt
+#          license - https://www.gnu.org/licenses/gpl-3.0.txt
 #          sh0inx - https://modrinth.com/user/sh0inx
 #          wiki - https://github.com/sh0inx/Incentive/wiki
 #          discord - https://discord.gg/pQNTS9uyp7
@@ -29,14 +29,11 @@ general:
   bStats: true
 #
 # Timezone Settings
-# - server-timezone: (timezone) uses the specified timezone for plugin calculations
-#   (leave blank for default).
 # - player-timezones: (true/false) uses player-specified timezones for calculations.
 # - timezones-cooldown: (see wiki) sets a cool down for players changing their timezone.
 # - admin-override: (true/false) allows admins to override timezones for players.
 #
 timezones:
-  server-timezone:
   player-timezones: true
   timezones-cooldown: weekly
   admin-override: true
@@ -48,9 +45,9 @@ modules:
   gui: true
   streaks: true
   playtime: true
-  log-in: true
+  login: true
   missions: true
   shop: true
   economy: true
   points: true
-  bungee: true
+  network: true
