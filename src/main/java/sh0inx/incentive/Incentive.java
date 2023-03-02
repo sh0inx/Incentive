@@ -5,6 +5,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import sh0inx.incentive.commands.CommandManager;
 import sh0inx.incentive.versionCheck.UpdateChecker;
 import sh0inx.incentive.versionCheck.VersionCheck;
 
@@ -21,9 +23,13 @@ public final class Incentive extends JavaPlugin {
     public static final String link = "https://www.modrinth.com/plugins/Incentive";
     public static final String source = "https://www.github.com/sh0inx/Incentive";
 
-    Logger log = Bukkit.getLogger();
+    static Logger log = Bukkit.getLogger();
 
-    VersionCheck.Platform platform = VersionCheck.getPlatform();
+    public static Logger getLog() {
+        return log;
+    }
+
+    static VersionCheck.Platform platform = VersionCheck.getPlatform();
     String version = VersionCheck.getVersion();
     boolean platformSupport = VersionCheck.isPlatformSupported(platform);
     boolean versionSupport = VersionCheck.isVersionSupported(version);
@@ -32,6 +38,7 @@ public final class Incentive extends JavaPlugin {
 
     //debug
     public static String debugPrefix = "[DEBUG] ";
+    public static String commandPrefix = "Incentive >> ";
 
     public void verifyPlatform(VersionCheck.Platform platform) {
 
@@ -52,6 +59,9 @@ public final class Incentive extends JavaPlugin {
         }
     }
 
+    public static String getPlatform() {
+        return String.valueOf(platform);
+    }
     public void loadProfile() {
         verifyPlatform(platform);
         verifyVersion(version);
@@ -174,9 +184,14 @@ public final class Incentive extends JavaPlugin {
         return 1;
     }
 
+    private static int modulesOn = 0;
+    public static int getModulesOn() {
+        return modulesOn;
+    }
+
     public void loadConfig() {
         saveDefaultConfig();
-        int modulesOn = 0;
+        modulesOn = 0;
 
         if(useModule(CONFIG.gui))
             modulesOn += enableModule(CONFIG.gui);
@@ -205,7 +220,7 @@ public final class Incentive extends JavaPlugin {
         if(useModule(CONFIG.network))
             modulesOn += enableModule(CONFIG.network);
 
-        log.info("Enabled " + modulesOn + " of " + modules + " modules.");
+        log.info("Enabled " + getModulesOn() + " of " + modules + " modules.");
     }
 
     @Override
@@ -223,6 +238,7 @@ public final class Incentive extends JavaPlugin {
 
         //Setting command handlers
         //TODO: Start writing commands.
+        this.getCommand("inc").setExecutor(new CommandManager());
     }
 
     @Override
