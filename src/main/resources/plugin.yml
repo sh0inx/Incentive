@@ -8,11 +8,11 @@ description: "Powers up servers with rewards for active players."
 website: "NA"
 prefix: "~*~ Incentive ~*~"
 
-softdepend: ["Vault", "ObsidianMaterials"]
+softdepend: [Vault, ObsidianMaterials]
 
 commands:
   inc:
-    aliases: [rewards, incentives, incentive]
+    aliases: [reward, rewards, incentive, incentives]
 
 permissions:
   incentive.blacklist:
