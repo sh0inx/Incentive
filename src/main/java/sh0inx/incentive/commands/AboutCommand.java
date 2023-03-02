@@ -10,14 +10,15 @@ public class AboutCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
 
-        sender.sendMessage("""
-                Incentive
-                author: %s
-                version: %s
-                modrinth: %s
-                source: %s""",
-                Incentive.pluginAuthor, Incentive.pluginVersion, Incentive.link, Incentive.source);
+        String message =
+                ("Incentive" +
+                 "\nAuthor: " + Incentive.pluginAuthor +
+                 "\nVersion: " + Incentive.pluginVersion +
+                 "\nModrinth: " + Incentive.link +
+                 "\nSource: " + Incentive.source);
 
-        return false;
+        sender.sendMessage(message);
+
+        return true;
     }
 }
