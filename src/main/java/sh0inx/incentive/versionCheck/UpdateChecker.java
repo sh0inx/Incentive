@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 
 public class UpdateChecker {
 
+    //TODO: Update method to load async
     public static String getCurrentVersion() {
         Gson gson = new Gson();
         StringBuilder response = new StringBuilder();
