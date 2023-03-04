@@ -8,15 +8,16 @@ import sh0inx.incentive.Incentive;
 
 public class ProfileCommand implements CommandExecutor {
 
+    Incentive plugin = CommandManager.plugin;
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
 
-        String message =
-                ("Incentive" +
-                 "\nProfile: " + Incentive.getPlatform() +
-                 "\nModules: " + Incentive.getModulesOn());
-
-        sender.sendMessage(message);
+        sender.sendMessage(String.format("""
+                 Incentive
+                 Profile: %s
+                 Modules: %s
+                 bStats: %s""", Incentive.getPlatform(), Incentive.getModulesOn(), plugin.getbStats()));
 
         return true;
     }
