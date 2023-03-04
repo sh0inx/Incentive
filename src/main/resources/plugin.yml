@@ -1,14 +1,14 @@
-name: "Incentive"
-version: "0.0.1"
+name: Incentive
+version: ${version}
 main: "sh0inx.incentive.Incentive"
 author: "sh0inx"
 api-version: 1.18
 
 description: "Powers up servers with rewards for active players."
-website: "NA"
-prefix: "~*~ Incentive ~*~"
+website: "https://www.modrinth.com/plugins/Incentive"
+prefix: "-* Incentive *-"
 
-softdepend: [Vault, ObsidianMaterials]
+softdepend: [PlaceholderAPI, IridiumSkyblock, Vault, ObsidianMaterial]
 
 commands:
   inc:
