@@ -1,6 +1,5 @@
 package sh0inx.incentive.versionCheck;
 
-import org.bukkit.Bukkit;
 import sh0inx.incentive.Incentive;
 
 public class VersionCheck {
@@ -32,14 +31,14 @@ public class VersionCheck {
             return String.format("""
             %s Running versionCheck.message
             %s Platform detected: %s
-            STATUS: Pass""", prefix, prefix, platform.toString());
+            %s STATUS: Pass""", prefix, prefix, platform.toString(), prefix);
         }
 
         if(!status) {
             return String.format("""
                 %s Running versionCheck.message
                 %s Platform detected: %s
-                STATUS: Failure - Bad Platform""", prefix, prefix, platform.toString());
+                %s STATUS: Failure - Bad Platform""", prefix, prefix, platform.toString(), prefix);
         }
 
         return prefix + "ERROR: Illegal message request [versionCheck.message].";
@@ -61,7 +60,7 @@ public class VersionCheck {
         NULL
     }
 
-    private static boolean classExists(String className) {
+    public static boolean classExists(String className) {
         try {
             Class.forName(className);
             return true;
@@ -115,14 +114,10 @@ public class VersionCheck {
 
     public static boolean isVersionSupported(String version) {
 
-        if(version.contains("1.19") ||
-           version.contains("1.18") ||
-           version.contains("1.17") ||
-           version.contains("1.16")) {
-            return true;
-        } else {
-            return false;
-        }
+        return version.contains("1.19") ||
+                version.contains("1.18") ||
+                version.contains("1.17") ||
+                version.contains("1.16");
     }
 }
 
