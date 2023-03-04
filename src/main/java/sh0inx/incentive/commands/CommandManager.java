@@ -7,6 +7,8 @@ import sh0inx.incentive.Incentive;
 
 public class CommandManager implements CommandExecutor{
 
+    static Incentive plugin = Incentive.getInstance();
+
     AboutCommand aboutCommand = new AboutCommand();
     ProfileCommand profileCommand = new ProfileCommand();
     HelpCommand helpCommand = new HelpCommand();
@@ -38,7 +40,7 @@ public class CommandManager implements CommandExecutor{
             }
 
         } catch (Exception e) {
-            Incentive.getLog().warning("ERROR: Failed to handle command. (" + e + ")");
+            //TODO: Have this bring up the default rewards screen (or just accept rewards, dependent on config).
             sender.sendMessage(Incentive.commandPrefix + "Sorry, you need to specify a command first.");
         }
 
