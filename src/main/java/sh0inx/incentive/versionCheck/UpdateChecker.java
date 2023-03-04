@@ -5,6 +5,7 @@ import sh0inx.incentive.Incentive;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import com.google.gson.Gson;
 
@@ -15,33 +16,38 @@ public class UpdateChecker {
     public static String getCurrentVersion() {
         Gson gson = new Gson();
         StringBuilder response = new StringBuilder();
+        Logger log = Incentive.getLog();
+        String debugPrefix = Incentive.debugPrefix;
+
+        int responseCode = 0;
 
         try {
-            URL url = new URL("https://api.modrinth.com/v2/project/" + Incentive.pluginID + "/version");
+            URL url = new URL("https://api.modrinth.com/v2/project/" + Incentive.getPluginID() + "/version");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.connect();
 
-            int responseCode = connection.getResponseCode();
-            System.out.println(Incentive.debugPrefix + "RESPONSE: " + responseCode);
+            responseCode = connection.getResponseCode();
+            log.info(debugPrefix + "RESPONSE: " + responseCode);
 
-            if (responseCode != 200) {
-                throw new RuntimeException("HttpResponseCode: " + responseCode);
-            } else {
+            if (responseCode == 200) {
                 Scanner scanner = new Scanner(url.openStream());
 
                 while (scanner.hasNext()) {
                     response.append(scanner.nextLine());
                 }
                 scanner.close();
+            } else {
+                log.warning(debugPrefix + "NO CONNECTION ESTABLISHED.");
             }
+
+            connection.disconnect();
 
             jsonModel[] mapVersion = gson.fromJson(response.toString(), jsonModel[].class);
             return mapVersion[0].currentVersion;
 
         } catch (Exception e) {
-            e.printStackTrace();
-            return "Unable to check for current version.";
+            return "Unable to check for current version. (" + responseCode + ") - " + e;
         }
     }
 }
