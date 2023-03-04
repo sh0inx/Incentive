@@ -7,17 +7,18 @@ import sh0inx.incentive.Incentive;
 
 public class AboutCommand implements CommandExecutor {
 
+    Incentive plugin = CommandManager.plugin;
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
 
-        String message =
-                ("Incentive" +
-                 "\nAuthor: " + Incentive.pluginAuthor +
-                 "\nVersion: " + Incentive.pluginVersion +
-                 "\nModrinth: " + Incentive.link +
-                 "\nSource: " + Incentive.source);
-
-        sender.sendMessage(message);
+        sender.sendMessage(String.format(
+                ("%s\n" +
+                 "Author: %s\n" +
+                 "Version: %s\n" +
+                 "Modrinth: %s\n" +
+                 "Source: %s").formatted
+                 (Incentive.commandPrefix, plugin.getPluginAuthor(), plugin.getPluginVersion(), plugin.getLink(), plugin.getSource())));
 
         return true;
     }
